@@ -1,15 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-
-html {
+body {
+    margin: 0%;
     background-color: rgb(187, 172, 193);
+    font-family: 'Muli';
 }
 
 .navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: rgb(241, 222, 248);
 }
 
-.hide {
+#start-page {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#quiz-page {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
     display: none;
+}
+
+#save-score {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+#score-page {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+
+
+.jr-footer {
+    margin: auto;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+    }
 }
