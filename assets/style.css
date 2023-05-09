@@ -1,3 +1,15 @@
+
+
 html {
+    background-color: rgb(187, 172, 193);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
     background-color: rgb(241, 222, 248);
+}
+
+.hide {
+    display: none;
 }
