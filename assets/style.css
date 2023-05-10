@@ -15,47 +15,47 @@ body {
     align-items: center;
 }
 
-
-.main {
+#start-page {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
 }
 
-
-.quiz-page {
-    margin: 5%;
+#quiz-page {
+    margin: 2% 30%;
     border-radius: 30px;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     background-color: rgb(241, 222, 248);
-    /* display: none; */
+    display: none;
+}
+
+#save-score {
+    margin: 2% 30%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(241, 222, 248);
+    display: none;
+}
+
+#score-page {
+    margin: 2% 30%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(241, 222, 248);
+    display: none;
 }
 
 .footer {
     display: flex;
     justify-content: center;
-}
-
-.save-score {
-    margin: 5%;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background-color: rgb(241, 222, 248);
-    /* display: none; */
-}
-
-.score-page {
-    display: flex;
-    flex-direction: column;
-    /* display: none; */
 }
 
 @media (max-width: 800px) {
