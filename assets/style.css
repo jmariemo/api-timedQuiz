@@ -1,51 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 body {
-    margin: 0%;
+    width: 100%;
+    margin: 0 auto;
     background-color: rgb(187, 172, 193);
     font-family: 'Muli';
+
 }
 
 .navigation {
+    background-color: rgb(241, 222, 248);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(241, 222, 248);
 }
 
-#start-page {
-    height: 400px;
+
+.main {
     display: flex;
     flex-direction: column;
-}
-
-
-#quiz-page {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    display: none;
-}
-
-#save-score {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    display: none;
-}
-
-#score-page {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    display: none;
-}
-
-
-
-.jr-footer {
-    margin: auto;
     text-align: center;
+}
+
+
+.quiz-page {
+    margin: 5%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(241, 222, 248);
+    /* display: none; */
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.save-score {
+    margin: 5%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(241, 222, 248);
+    /* display: none; */
+}
+
+.score-page {
+    display: flex;
+    flex-direction: column;
+    /* display: none; */
 }
 
 @media (max-width: 800px) {
