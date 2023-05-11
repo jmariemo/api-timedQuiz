@@ -31,7 +31,11 @@ body {
     display: none;
 }
 
-#save-score {
+#quiz-question {
+    justify-content: center;
+}
+
+#save-page {
     margin: 2% 30%;
     border-radius: 30px;
     display: flex;
