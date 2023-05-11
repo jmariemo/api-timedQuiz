@@ -5,7 +5,9 @@ body {
     margin: 0 auto;
     background-color: rgb(187, 172, 193);
     font-family: 'Muli';
-
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .navigation {
@@ -60,6 +62,7 @@ body {
 .footer {
     display: flex;
     justify-content: center;
+    margin-top: auto;
 }
 
 @media (max-width: 800px) {
