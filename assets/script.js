@@ -154,4 +154,5 @@ document.getElementById("home-page").addEventListener("click", function() {
 })
 
 
-// repeated code lines 137 - 139 in lines 148 - 150, how to remove?
+// is there a way to refactor functions to hide other pages while showing single page (lines 138 - 154)?
+// nav heading styling shifts when timeCount changes to single digit
