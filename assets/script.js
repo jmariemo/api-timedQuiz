@@ -4,13 +4,14 @@ var questionCount = 0;
 var grade = document.querySelector("#grade");
 var quizQuestion = document.getElementById("quiz-question");
 var score = document.querySelector("#score");
-var finalScore = document.querySelector("#finalScore");
+var finalScore = document.querySelector("#final-score");
+var completedIn = document.querySelector("#completed-in");
 var scoreCount = 0;
 var submitButton = document.querySelector("#submit");
 var timeCount = 30;
+var time;
 
-
-// array of questions and answers
+// array of questions with corresponding answer choices and correct answer choice
 var questions = [
     {
         question: "What does CSS do?",
@@ -39,6 +40,33 @@ var questions = [
     }
 ]
 
+//function to check user's answer against correct answer, deduct time if incorrect, add point to score if correct, and reassign DOM elements to next question in array
+function checkAnswer(event) {
+    var correctAnswer = questions[questionCount].correctAnswer;
+    var userAnswer = event.target.textContent;
+    score.textContent = "Score: " + scoreCount + " / 5";
+    if (userAnswer === correctAnswer) {
+        grade.textContent = "Correct!";
+        scoreCount += 1;
+    } else {
+        grade.textContent = "Incorrect!"
+        timeCount -= 5;
+    }
+    questionCount++;
+    if(questionCount < questions.length && timeCount >= 0) {
+        quiz()
+    } else {
+        saveScore()
+    }
+}
+
+function saveScore() {
+    document.getElementById("quiz-page").style.display="none";
+    document.getElementById("save-page").style.display="flex";
+    finalScore.textContent = scoreCount + " / 5";
+}
+
+// function to assign questions to DOM elements and listen to user's answer choice via click, then check user's answer against correct answer
 function quiz() {
     var answer1 = document.querySelector("#answer-1");
     var answer2 = document.querySelector("#answer-2");
@@ -59,6 +87,10 @@ function quiz() {
     quizAnswer4.addEventListener("click", checkAnswer);
 }
 
+// function to start timer and stop timer and send user to score page at 0 seconds
+function startTime() {
+}
+
 // start quiz: hide start page, show quiz page, run quiz function
 document.getElementById("start-button").addEventListener("click", function() {
     document.getElementById("start-page").style.display="none";
@@ -67,54 +99,8 @@ document.getElementById("start-button").addEventListener("click", function() {
     quiz();
 })
 
-// function to start timer, close quiz once timer reaches 0 seconds
-function startTime() {
-    var time;
-    time = setInterval(function() {
-        timeCount--;
-        timeDisplay.textContent = timeCount + " seconds remaining";
-        if (timeCount >= 0) {
-            if (win && timeCount > 0) {
-                saveScore();
-            }
-        }
-        if (timeCount <= 0) {
-            saveScore();
-        }
-    }, 1000);
-}
 
-function checkAnswer(event) {
-    var correctAnswer = questions[questionCount].correctAnswer;
-    var userAnswer = event.target.textContent;
-    if (userAnswer === correctAnswer) {
-        grade.textContent = "Correct!";
-        scoreCount += 1;
-        score.textContent = "Score: " + scoreCount + " / 5";
-        if(timeCount < 0) {
-            timeCount = 0;
-        }
-    } else {
-        grade.textContent = "Incorrect!"
-        timeCount -= 5;
-        if(timeCount < 0) {
-            timeCount = 0;
-        }
-    }
-    questionCount++;
-    if(questionCount < questions.length) {
-        quiz()
-    } else {
-        saveScore()
-    }
-}
-
-function saveScore() {
-    document.getElementById("quiz-page").style.display="none";
-    document.getElementById("save-page").style.display="flex";
-    finalScore.textContent = scoreCount + " / 5";
-}
-
+// function to save user initials, display user initials on score page
 document.getElementById("submit").addEventListener("click", function() {
     var userInput = document.getElementById("initials");
     var userInitials = userInput.value;
@@ -127,14 +113,17 @@ document.getElementById("submit").addEventListener("click", function() {
     }
 })
 
-document.getElementById("show-scores").addEventListener("click", function() {
-    document.getElementById("start-page").style.display="none";
-    document.getElementById("quiz-page").style.display="none";
-    document.getElementById("save-page").style.display="none";
-    document.getElementById("score-page").style.display="flex";
-})
+
+// document.getElementById("show-scores").addEventListener("click", function() {
+//     document.getElementById("start-page").style.display="none";
+//     document.getElementById("quiz-page").style.display="none";
+//     document.getElementById("save-page").style.display="none";
+//     document.getElementById("score-page").style.display="flex";
+// })
 
 document.getElementById("home-page").addEventListener("click", function() {
+    clearInterval(time);
+    time.display.textContent = timeCount + " seconds remaining";
     document.getElementById("start-page").style.display="flex";
     document.getElementById("quiz-page").style.display="none";
     document.getElementById("save-page").style.display="none";
